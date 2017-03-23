@@ -1,0 +1,9 @@
+<ul>
+  <% @starred.each do |star| %>
+    <li><%= star.name %></li>
+    <li><%= star.link %></li>
+    <li><%= star.language %></li>
+    <li><%= star.created %></li>
+    <li><%= star.updated %></li>
+  <% end %>
+</ul>
