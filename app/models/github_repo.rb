@@ -1,17 +1,18 @@
 class GithubRepo
   def initialize(repo_data)
+    # binding.pry
     @name = repo_data[:name]
-    @type = repo_data[:type]
-    @starred_repo = repo_data[:starred_url]
+    @link = repo_data[:html_url]
+    @created = repo_data[:created_at]
+    @updated = repo_data[:updated_at]
+    @language = repo_data[:language]
   end
 
   def self.repos(current_user)
-    repos_by_user = GithubService.repos_by_user(current_user)
+    starred_repos = GithubService.starred_by_user(current_user)
 
-    repos = repos_by_user.map do|repo_data|
-      byebug
+    repos = starred_repos.map do|repo_data|
       GithubRepo.new(repo_data)
     end
-    # byebug
   end
 end
