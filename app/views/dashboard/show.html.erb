@@ -6,10 +6,9 @@
     <h2 class="home">Username: <%= current_user.username %> </h2>
     <h2 class="home">E-mail:  <%= current_user.email %> </h2>
     <h2 class="home">Starred repos: <%= @starred_number %></h2>
-    <%#create a link that goes to index repo view and there we do
-    @repos.each do
-    print to screen
-    end%>
+    <%#create a link that goes to index repo %>
+    <h2 class="home">Starred repos: <%= @followers_number %></h2>
+    <%#create a link that goes to index followers %>
     <%= link_to "Logout", logout_path, class: "btn btn-lg btn-default btn-home" %>
   </div>
   <div class="col-md-2"></div>
