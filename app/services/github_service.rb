@@ -5,11 +5,14 @@ class GithubService
 
   def self.starred_by_user(current_user)
     @username = current_user.username
-    response = Faraday.get("https://api.github.com/users/pixapi/starred")
+    response = Faraday.get("https://api.github.com/users/#{@username}/starred")
     repos = JSON.parse(response.body, symbolize_names: true)
   end
 
   def self.followers(current_user)
+    @username = current_user.username
+    response = Faraday.get("https://api.github.com/users/#{@username}/followers")
+    repos = JSON.parse(response.body, symbolize_names: true)
   end
 
   def self.following(current_user)
