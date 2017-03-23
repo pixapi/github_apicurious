@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/starred', to: 'starred#index'
   get '/followers', to: 'followers#index'
   get '/following', to: 'following#index'
+  get '/recent_commits', to: 'commits#index'
 
   root 'home#show'
 end

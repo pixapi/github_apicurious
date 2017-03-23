@@ -23,4 +23,12 @@ class GithubService
     response = Faraday.get("https://api.github.com/users/#{@username}/following?client_id=#{@client_id}&client_secret=#{@client_secret}")
     repos = JSON.parse(response.body, symbolize_names: true)
   end
+
+  def self.recent_commits(current_user)
+    @username = current_user.username
+    @client_id = ENV['client_id']
+    @client_secret = ENV['client_secret']
+    response = Faraday.get("https://api.github.com/users/#{@username}/events?client_id=#{@client_id}&client_secret=#{@client_secret}")
+    repos = JSON.parse(response.body, symbolize_names: true)
+  end
 end

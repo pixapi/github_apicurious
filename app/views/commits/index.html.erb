@@ -1,0 +1,17 @@
+<div class="container-fluid container-home">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+    <h1 class="home">Recent commits</h1></br>
+    <ul>
+      <% @recent_commits.each do |commit| %>
+        <h2 class="home">Id: <%= commit.id %></h2>
+        <h2 class="home">Type: <%= commit.type %></h2>
+        <h2 class="home">Author: <%= commit.author %></h2>
+        <h2 class="home">Repo Link: <%= commit.repo_link %></h2>
+        </br>
+      <% end %>
+    </ul>
+    <%= link_to "Go back to dashboard", dashboard_path, class: "btn btn-lg btn-default btn-home" %>
+  </div>
+  <div class="col-md-2"></div>
+</div>
