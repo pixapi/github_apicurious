@@ -1,7 +1,17 @@
-<ul>
-  <% @followers.each do |follower| %>
-    <li><%= follower.image %></li>
-    <li><%= follower.name %></li>
-    <li><%= follower.link %></li>
-  <% end %>
-</ul>
+<div class="container-fluid container-home">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+    <h1 class="home">Followers</h1></br>
+    <ul>
+      <% @followers.each do |follower| %>
+        <%= image_tag follower.image, class: "img-circle img-thumbnail home-image" %>
+        <h2 class="home">Name: <%= follower.name %></h2>
+        <h2 class="home">Profile link: <%= follower.link %></h2>
+        </br>
+      <% end %>
+    </ul>
+    <%= link_to "Go back to dashboard", dashboard_path, class: "btn btn-lg btn-default btn-home" %>
+    </br></br>
+  </div>
+  <div class="col-md-2"></div>
+</div>
