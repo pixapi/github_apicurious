@@ -1,6 +1,7 @@
 class GithubRepo
+  attr_reader :name, :link, :created, :updated, :language
+  
   def initialize(repo_data)
-    # binding.pry
     @name = repo_data[:name]
     @link = repo_data[:html_url]
     @created = repo_data[:created_at]
@@ -10,7 +11,6 @@ class GithubRepo
 
   def self.repos(current_user)
     starred_repos = GithubService.starred_by_user(current_user)
-
     repos = starred_repos.map do|repo_data|
       GithubRepo.new(repo_data)
     end

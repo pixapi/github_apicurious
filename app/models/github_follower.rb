@@ -1,4 +1,6 @@
 class GithubFollower
+  attr_reader :name, :image, :link
+
   def initialize(follower_data)
     @name   = follower_data[:login]
     @image  = follower_data[:avatar_url]

@@ -1,0 +1,16 @@
+<div class="container-fluid container-home">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+    <h1 class="home">Following</h1></br>
+    <ul>
+      <% @users_following.each do |following| %>
+        <%= image_tag following.image, class: "img-circle img-thumbnail home-image" %>
+        <h2 class="home"><%= following.name %></h2>
+        <h2 class="home"><%= following.link %></h2>
+        </br>
+      <% end %>
+    </ul>
+    <%= link_to "Go back to dashboard", dashboard_path, class: "btn btn-lg btn-default btn-home" %>
+  </div>
+  <div class="col-md-2"></div>
+</div>

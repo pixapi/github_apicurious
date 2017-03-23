@@ -23,7 +23,7 @@ describe GithubService do
     current_user = User.create(username: 'pixapi')
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(current_user)
 
-    followers = GithubFollower.following(current_user)
+    following = GithubFollowing.following(current_user)
 
     expect(following.count).to eq(2)
   end
