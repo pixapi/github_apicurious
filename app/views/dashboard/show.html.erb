@@ -8,7 +8,7 @@
     <h2 class="home">Starred Repos: <%= link_to @starred_number, starred_path %></h2>
     <h2 class="home">Followers: <%= link_to @followers_number, followers_path %></h2>
     <h2 class="home">Following: <%= link_to @following_number, following_path %></h2>
-    <%#create a link that goes to index followers %>
+    <h2 class="home">Recent commits: <%= link_to @recent_commits_number, recent_commits_path %></h2>
     <%= link_to "Logout", logout_path, class: "btn btn-lg btn-default btn-home" %>
     </br></br>
   </div>

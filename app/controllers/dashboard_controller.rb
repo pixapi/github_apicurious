@@ -2,7 +2,6 @@ class DashboardController < ApplicationController
   before_action :authorize!
 
   def show
-    # binding.pry
     starred_repos = GithubRepo.repos(current_user)
     @starred_number = starred_repos.count
 
@@ -12,6 +11,7 @@ class DashboardController < ApplicationController
     user_following = GithubFollowing.following(current_user)
     @following_number = user_following.count
 
-    # redirect_to dashboard_path
+    user_recent_commits = GithubCommit.recent_commits(current_user)
+    @recent_commits_number = user_recent_commits.count
   end
 end
