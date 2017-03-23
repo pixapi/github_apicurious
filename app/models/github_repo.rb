@@ -10,7 +10,7 @@ class GithubRepo
 
   def self.repos(current_user)
     starred_repos = GithubService.starred_by_user(current_user)
-
+    # binding.pry
     repos = starred_repos.map do|repo_data|
       GithubRepo.new(repo_data)
     end

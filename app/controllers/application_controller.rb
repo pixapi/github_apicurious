@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
   end
 
   def authorize!
+    # binding.pry
       unless current_user
         redirect_to root_path
       end

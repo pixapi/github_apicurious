@@ -8,6 +8,7 @@ class GithubFollowing
   def self.following(current_user)
     user_following = GithubService.following(current_user)
     following = user_following.map do |following_data|
+      # binding.pry
       GithubFollowing.new(following_data)
     end
   end
