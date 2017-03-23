@@ -1,0 +1,7 @@
+<ul>
+  <% @users_following.each do |following| %>
+    <li><%= following.image %></li>
+    <li><%= following.name %></li>
+    <li><%= following.link %></li>
+  <% end %>
+</ul>

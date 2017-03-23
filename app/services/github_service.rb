@@ -16,5 +16,8 @@ class GithubService
   end
 
   def self.following(current_user)
+    @username = current_user.username
+    response = Faraday.get("https://api.github.com/users/#{@username}/following")
+    repos = JSON.parse(response.body, symbolize_names: true)
   end
 end

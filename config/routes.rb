@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get '/logout', to: 'sessions#destroy'
   get '/starred', to: 'starred#index'
   get '/followers', to: 'followers#index'
-  # get '/following', to: 'following#index'
+  get '/following', to: 'following#index'
 
   root 'home#show'
 end
