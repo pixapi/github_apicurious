@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe GithubCommit do
-  it 'displays number of user recent commits' do
+  it 'displays user recent commits' do
     current_user = User.create(username: 'pixapi')
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(current_user)
 

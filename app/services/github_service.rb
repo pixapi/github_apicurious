@@ -5,7 +5,7 @@ class GithubService
     @client_secret = ENV['client_secret']
 
     response = Faraday.get("https://api.github.com/users/#{@username}/starred?client_id=#{@client_id}&client_secret=#{@client_secret}")
-    repos = JSON.parse(response.body, symbolize_names: true)
+    starred = JSON.parse(response.body, symbolize_names: true)
   end
 
   def self.followers(current_user)
@@ -13,7 +13,7 @@ class GithubService
     @client_id = ENV['client_id']
     @client_secret = ENV['client_secret']
     response = Faraday.get("https://api.github.com/users/#{@username}/followers?client_id=#{@client_id}&client_secret=#{@client_secret}")
-    repos = JSON.parse(response.body, symbolize_names: true)
+    followers = JSON.parse(response.body, symbolize_names: true)
   end
 
   def self.following(current_user)
@@ -21,7 +21,7 @@ class GithubService
     @client_id = ENV['client_id']
     @client_secret = ENV['client_secret']
     response = Faraday.get("https://api.github.com/users/#{@username}/following?client_id=#{@client_id}&client_secret=#{@client_secret}")
-    repos = JSON.parse(response.body, symbolize_names: true)
+    following = JSON.parse(response.body, symbolize_names: true)
   end
 
   def self.recent_commits(current_user)
@@ -29,6 +29,15 @@ class GithubService
     @client_id = ENV['client_id']
     @client_secret = ENV['client_secret']
     response = Faraday.get("https://api.github.com/users/#{@username}/events?client_id=#{@client_id}&client_secret=#{@client_secret}")
-    repos = JSON.parse(response.body, symbolize_names: true)
+    commits = JSON.parse(response.body, symbolize_names: true)
   end
+
+  def self.follower_activity(current_user)
+    @username = current_user.username
+    @client_id = ENV['client_id']
+    @client_secret = ENV['client_secret']
+    response = Faraday.get("https://api.github.com/users/#{@username}/received_events?client_id=#{@client_id}&client_secret=#{@client_secret}")
+    activity = JSON.parse(response.body, symbolize_names: true)
+  end
+
 end
