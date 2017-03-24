@@ -1,0 +1,17 @@
+<div class="container-fluid container-home">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+    <h1 class="home">Organizations</h1></br>
+    <ul>
+      <% @user_organizations.each do |organization| %>
+        <%= image_tag organization.image, class: "img-circle img-thumbnail home-image" %>
+        <h2 class="home"><%= organization.name %></h2>
+        <h2 class="home"><%= organization.link %></h2>
+        </br>
+      <% end %>
+    </ul>
+    <%= link_to "Go back to dashboard", dashboard_path, class: "btn btn-lg btn-default btn-home" %>
+    </br></br>
+  </div>
+  <div class="col-md-2"></div>
+</div>

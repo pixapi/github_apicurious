@@ -2,9 +2,9 @@ class GithubFollowerActivity
   attr_reader :id, :type, :author, :repo_link
 
   def initialize(follower_activity_data)
-    @id = follower_activity_data[:id]
-    @type = follower_activity_data[:type]
-    @author = follower_activity_data[:actor][:login]
+    @id        = follower_activity_data[:id]
+    @type      = follower_activity_data[:type]
+    @author    = follower_activity_data[:actor][:login]
     @repo_link = follower_activity_data[:repo][:name]
   end
 
