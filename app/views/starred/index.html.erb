@@ -7,8 +7,8 @@
         <h2 class="home">Name: <%= star.name %></h2>
         <h2 class="home">Link: <%= star.link %></h2>
         <h2 class="home">Language: <%= star.language %></h2>
-        <h2 class="home">Created: <%= star.created %></h2>
-        <h2 class="home">Updated: <%= star.updated %></h2>
+        <h2 class="home">Created: <%= Time.parse(star.created) %></h2>
+        <h2 class="home">Updated: <%= Time.parse(star.updated) %></h2>
         </br>
       <% end %>
     </ul>
