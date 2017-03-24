@@ -9,7 +9,7 @@ class GithubOauth
 
   def access_token
       response      = Faraday.post("https://github.com/login/oauth/access_token?client_id=#{client_id}&client_secret=#{client_secret}&code=#{code}")
-      @access_token  = response.body.split(/\W+/)[1]
+      @access_token = response.body.split(/\W+/)[1]
   end
 
   def data
@@ -17,5 +17,4 @@ class GithubOauth
     data            = JSON.parse(oauth_response.body)
     data
   end
-
 end

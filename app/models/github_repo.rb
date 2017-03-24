@@ -1,11 +1,11 @@
 class GithubRepo
   attr_reader :name, :link, :created, :updated, :language
-  
+
   def initialize(repo_data)
-    @name = repo_data[:name]
-    @link = repo_data[:html_url]
-    @created = repo_data[:created_at]
-    @updated = repo_data[:updated_at]
+    @name     = repo_data[:name]
+    @link     = repo_data[:html_url]
+    @created  = repo_data[:created_at]
+    @updated  = repo_data[:updated_at]
     @language = repo_data[:language]
   end
 

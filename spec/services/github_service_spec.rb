@@ -59,6 +59,18 @@ describe GithubService do
     expect(followers_activity.first[:repo][:name]).to be_truthy
   end
 
+  it 'displays user organizations' do
+    current_user = User.create(username: 'pixapi')
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(current_user)
+
+    organizations = GithubService.user_organizations(current_user)
+
+    expect(organizations.class).to eq(Array)
+    expect(organizations.first.class).to eq(Hash)
+    expect(organizations.first[:login]).to be_truthy
+    expect(organizations.first[:avatar_url]).to be_truthy
+  end
+
   it 'displays user repositories' do
     current_user = User.create(username: 'pixapi')
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(current_user)

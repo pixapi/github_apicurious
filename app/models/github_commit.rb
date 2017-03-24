@@ -2,9 +2,9 @@ class GithubCommit
   attr_reader :id, :type, :author, :repo_link
 
   def initialize(commit_data)
-    @id = commit_data[:id]
-    @type = commit_data[:type]
-    @author = commit_data[:actor][:login]
+    @id        = commit_data[:id]
+    @type      = commit_data[:type]
+    @author    = commit_data[:actor][:login]
     @repo_link = commit_data[:repo][:name]
   end
 

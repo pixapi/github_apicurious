@@ -17,6 +17,9 @@ class DashboardController < ApplicationController
     follower_activity = GithubFollowerActivity.follower_activity(current_user)
     @follower_activity_number = follower_activity.count
 
+    user_organizations = GithubOrganization.user_organizations(current_user)
+    @user_organizations_number = user_organizations.count
+
     user_repos = GithubUserRepo.user_repos(current_user)
     @user_repos_number = user_repos.count
   end
