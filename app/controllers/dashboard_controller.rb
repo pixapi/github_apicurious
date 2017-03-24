@@ -13,5 +13,8 @@ class DashboardController < ApplicationController
 
     user_recent_commits = GithubCommit.recent_commits(current_user)
     @recent_commits_number = user_recent_commits.count
+
+    follower_activity = GithubFollowerActivity.follower_activity(current_user)
+    @follower_activity_number = follower_activity.count
   end
 end

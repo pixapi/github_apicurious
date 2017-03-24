@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get '/followers', to: 'followers#index'
   get '/following', to: 'following#index'
   get '/recent_commits', to: 'commits#index'
+  get '/followers_activity', to: 'followers_activity#index'
 
   root 'home#show'
 end
