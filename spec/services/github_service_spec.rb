@@ -52,9 +52,22 @@ describe GithubService do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(current_user)
 
     followers_activity = GithubService.follower_activity(current_user)
+
     expect(followers_activity.class).to eq(Array)
     expect(followers_activity.first.class).to eq(Hash)
     expect(followers_activity.first[:type]).to be_truthy
     expect(followers_activity.first[:repo][:name]).to be_truthy
+  end
+
+  it 'displays user repositories' do
+    current_user = User.create(username: 'pixapi')
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(current_user)
+
+    user_repos = GithubService.user_repos(current_user)
+
+    expect(user_repos.class).to eq(Array)
+    expect(user_repos.first.class).to eq(Hash)
+    expect(user_repos.first[:name]).to be_truthy
+    expect(user_repos.first[:html_url]).to be_truthy
   end
 end

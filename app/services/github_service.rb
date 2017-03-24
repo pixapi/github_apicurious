@@ -40,4 +40,19 @@ class GithubService
     activity = JSON.parse(response.body, symbolize_names: true)
   end
 
+  # def self.user_organizations(current_user)
+  #   @username = current_user.username
+  #   @client_id = ENV['client_id']
+  #   @client_secret = ENV['client_secret']
+  #   response = Faraday.get("https://api.github.com/users/#{@username}/received_events?client_id=#{@client_id}&client_secret=#{@client_secret}")
+  #   activity = JSON.parse(response.body, symbolize_names: true)
+  # end
+
+  def self.user_repos(current_user)
+    @username = current_user.username
+    @client_id = ENV['client_id']
+    @client_secret = ENV['client_secret']
+    response = Faraday.get("https://api.github.com/users/#{@username}/repos?client_id=#{@client_id}&client_secret=#{@client_secret}")
+    user_repos = JSON.parse(response.body, symbolize_names: true)
+  end
 end

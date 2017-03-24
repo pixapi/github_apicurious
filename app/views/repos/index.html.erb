@@ -1,0 +1,18 @@
+<div class="container-fluid container-home">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+    <h1 class="home">User Repos</h1></br>
+    <ul>
+      <% @user_repos.each do |repo| %>
+        <h2 class="home">Name: <%= repo.name %></h2>
+        <h2 class="home">Link: <%= repo.link %></h2>
+        <h2 class="home">Language: <%= repo.language %></h2>
+        <h2 class="home">Created: <%= repo.created %></h2>
+        <h2 class="home">Updated: <%= repo.updated %></h2>
+        </br>
+      <% end %>
+    </ul>
+    <%= link_to "Go back to dashboard", dashboard_path, class: "btn btn-lg btn-default btn-home" %>
+  </div>
+  <div class="col-md-2"></div>
+</div>

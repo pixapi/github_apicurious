@@ -10,6 +10,7 @@
     <h2 class="home">Following: <%= link_to @following_number, following_path %></h2>
     <h2 class="home">Recent commits: <%= link_to @recent_commits_number, recent_commits_path %></h2>
     <h2 class="home">Followers_activity: <%= link_to @follower_activity_number, followers_activity_path %></h2>
+    <h2 class="home">User_repos: <%= link_to @user_repos_number, repos_path %></h2>
     <%= link_to "Logout", logout_path, class: "btn btn-lg btn-default btn-home" %>
     </br></br>
   </div>
