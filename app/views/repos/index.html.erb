@@ -7,8 +7,8 @@
         <h2 class="home">Name: <%= repo.name %></h2>
         <h2 class="home">Link: <%= repo.link %></h2>
         <h2 class="home">Language: <%= repo.language %></h2>
-        <h2 class="home">Created: <%= repo.created %></h2>
-        <h2 class="home">Updated: <%= repo.updated %></h2>
+        <h2 class="home">Created: <%= Time.parse(repo.created) %></h2>
+        <h2 class="home">Updated: <%= Time.parse(repo.updated) %></h2>
         </br>
       <% end %>
     </ul>
